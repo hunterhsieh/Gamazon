@@ -6,7 +6,8 @@ Reference
 MAMP  
 https://www.mamp.info/en/downloads/  
 Laravel tutorials  
-https://www.lynda.com/Laravel-tutorials/Learning-Laravel-4/166513-2.html?org=sjlibrary.org  
+https://laravel-news.com/your-first-laravel-application    
+[Video](https://www.lynda.com/Laravel-tutorials/Learning-Laravel-4/166513-2.html?org=sjlibrary.org)  
 PhpStorm for student  
 https://www.jetbrains.com/student/  
 PhpStorm ide helper  
