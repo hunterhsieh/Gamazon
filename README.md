@@ -7,7 +7,7 @@ MAMP
 https://www.mamp.info/en/downloads/  
 Laravel tutorials  
 https://laravel-news.com/your-first-laravel-application    
-[Video](https://www.lynda.com/Laravel-tutorials/Learning-Laravel-4/166513-2.html?org=sjlibrary.org) ID:21197908488751 PIN:0668  
+[Video](https://www.lynda.com/Laravel-tutorials/Learning-Laravel-4/166513-2.html?org=sjlibrary.org) ID:21197908488751 PIN:0668    
 PhpStorm for student  
 https://www.jetbrains.com/student/  
 PhpStorm ide helper  
