@@ -38,12 +38,12 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-        
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => 'icopoghru9oezxh8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
             'port' => env('DB_PORT', '3306'),
-            'database' => 'hbrin7j218267rq78',
+            'database' => 'brin7j218267rq78',
             'username' => 'kncefrm4xdk4ywb5',
             'password' => 'lst0hhpp092qc7em',
             'unix_socket' => env('DB_SOCKET', ''),
