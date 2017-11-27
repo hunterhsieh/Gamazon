@@ -38,14 +38,14 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-
+        
         'mysql' => [
             'driver' => 'mysql',
-            'host' => 'us-cdbr-iron-east-02.cleardb.net',
+            'host' => 'icopoghru9oezxh8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
             'port' => env('DB_PORT', '3306'),
-            'database' => 'heroku_f7469a0c6b39995',
-            'username' => 'b419fdf6d21e11',
-            'password' => 'c78bdf37',
+            'database' => 'hbrin7j218267rq78',
+            'username' => 'kncefrm4xdk4ywb5',
+            'password' => 'lst0hhpp092qc7em',
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
