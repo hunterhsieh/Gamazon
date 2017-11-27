@@ -48,7 +48,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
-echo "index.php"; exit;
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
@@ -58,3 +58,4 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+echo "index.php"; exit;
