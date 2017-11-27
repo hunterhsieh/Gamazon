@@ -1,5 +1,3 @@
-#mysql -u b419fdf6d21e11 -h us-cdbr-iron-east-02.cleardb.net -p c78bdf37 heroku_f7469a0c6b39995 < D:\Github\Gamazon\create_db.sql
-#set GLOBAL log_bin_trust_function_creators = 1;
 use brin7j218267rq78;
 CREATE TABLE gamer (	id int(10) UNSIGNED unique,
 						gamer_id int(10) UNSIGNED unique,						
@@ -33,7 +31,7 @@ CREATE TRIGGER company_inc_id BEFORE INSERT ON company
 delimiter ;
 CREATE TABLE product (	product_id int(10) UNSIGNED AUTO_INCREMENT,
 						id int(10) UNSIGNED unique,
-                        company_id int(10) unique,
+                        company_id int(10) UNSIGNED unique,
                         name varchar(191) unique NOT NULL,
                         video varchar(191),
                         description TEXT,

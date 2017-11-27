@@ -37,7 +37,7 @@ CREATE TRIGGER company_inc_id BEFORE INSERT ON company
 delimiter ;
 CREATE TABLE product (	product_id int(10) UNSIGNED AUTO_INCREMENT,
 						id int(10) UNSIGNED unique,
-                        company_id int(10) unique,
+                        company_id int(10) UNSIGNED unique,
                         name varchar(191) unique NOT NULL,
                         video varchar(191),
                         description TEXT,
