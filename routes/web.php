@@ -17,8 +17,11 @@ if(isset($_COOKIE['account'])){
     $account=unserialize($_COOKIE['account']);
 }
 
-
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function () {
+//    	return view('welcome');
+    return Redirect::route('home');
+});
+//Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/order/{order}', 'HomeController@index')->name('home_order');
 
