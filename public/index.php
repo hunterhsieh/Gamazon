@@ -56,6 +56,5 @@ $response = $kernel->handle(
 );
 
 $response->send();
-
-$kernel->terminate($request, $response);
 echo "index.php"; exit;
+$kernel->terminate($request, $response);
