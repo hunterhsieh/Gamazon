@@ -22,18 +22,25 @@
 
 @include('includes.header');
 
+
 <!-- Page Content -->
 <div class="container">
 
-    <!-- Jumbotron Header -->
-    <header class="jumbotron my-4 cover">
-        <h1 class="display-3 cover-letter">Gamazon</h1>
-        {{--<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>--}}
-        {{--<a href="#" class="btn btn-primary btn-lg">Search</a>--}}
-
-    </header>
-
-    <!-- Page Features -->
+    <img class="company-image" src="{{asset('uploads/' . $company->image)}}">&nbsp;&nbsp;
+    <h1 class="cart-title">{{$company->name}}</h1><br><br>
+    <div class="company-rating">
+        <span class="text-warning">
+             <?php $i=0; ?>
+             @for(;$i<number_format($rate,0);$i++)
+                 &#9733;
+             @endfor
+             @for($i=5-$rate;$i>0;$i--)
+                 &#9734;
+             @endfor
+        </span>{{number_format($rate,1)}} stars
+    </div><br><br>
+    <p class="lead">{{$company->description}}</p>
+    <hr>
     <h3>Five most popular products</h3>
 
     <div class="row text-center">
@@ -49,7 +56,7 @@
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card">
-                        <img class="card-img-top card-image" src="{{asset('uploads/' . $images[$pop->product_id])}}" alt="">
+                        <img class="card-img-top" src="{{asset('uploads/' . $images[$pop->product_id])}}" alt="">
                         <div class="card-body">
                             <h4 class="card-title">{{$pop->name}}</h4>
                             <p class="card-text">Rates: {{number_format($pop->rate,1)}} | Reviews: {{$pop->review}} | Visits: {{$pop->visit}}</p>
@@ -65,11 +72,10 @@
     </div>
 
     <hr>
-
     <h3>Products</h3>
-    <a href="/home/order/rate" class="btn btn-light">Rate</a>
-    <a href="/home/order/review" class="btn btn-light">Review</a>
-    <a href="/home/order/visit" class="btn btn-light">Visit</a>
+    <a href="/company/order/{{$company->company_id}}/rate" class="btn btn-light">Rate</a>
+    <a href="/company/order/{{$company->company_id}}/review" class="btn btn-light">Review</a>
+    <a href="/company/order/{{$company->company_id}}/visit" class="btn btn-light">Visit</a>
     <!-- Page Features -->
     <div class="row text-center">
         @if(sizeof($products)==0)
