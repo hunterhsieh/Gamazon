@@ -16,7 +16,7 @@ https://www.jetbrains.com/help/phpstorm/configuring-xdebug.html
 Bootstrap and Laravel 5 tutorial  
 https://medium.com/@chensformers/complete-guide-to-phpgrid-laravel-5-and-bootstrap-3-integration-for-beginners-c20b4ddd91e9  
 
-Instruction
+Installation
 ------
 1. Install MAMP
 2. Follow Laravel tutorials to install Laravel
@@ -33,4 +33,10 @@ Instruction
     4. Type "localhost" at the Host field and click OK
     5. Type "/" at the Start URL field and click OK
 
-9. Launch the web application by clicking on Run->Run or by visiting http://localhost/
+Instruction
+------
+1. Create a database called gamazon
+2. $ cd [Gamazon root directory]
+5. $ php artisan migrate
+6. Run create_db.sql
+7. Launch the web application by clicking on Run->Run or by visiting http://localhost/

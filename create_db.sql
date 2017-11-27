@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS gamazon;
-CREATE DATABASE gamazon;
+#DROP DATABASE IF EXISTS gamazon;
+#CREATE DATABASE gamazon;
 
 use gamazon;
 
