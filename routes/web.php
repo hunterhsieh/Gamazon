@@ -12,6 +12,8 @@
 */
 use App\User;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
+
 global $account;
 if(isset($_COOKIE['account'])){
     $account=unserialize($_COOKIE['account']);
