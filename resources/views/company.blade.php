@@ -26,7 +26,7 @@
 <!-- Page Content -->
 <div class="container">
 
-    <img class="company-image" src="{{'uploads/' . $company->image}}">&nbsp;&nbsp;
+    <img class="company-image" src="{{$company->image}}">&nbsp;&nbsp;
     <h1 class="cart-title">{{$company->name}}</h1><br><br>
     <div class="company-rating">
         <span class="text-warning">
