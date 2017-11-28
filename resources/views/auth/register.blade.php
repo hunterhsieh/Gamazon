@@ -28,7 +28,7 @@
             <h1 id="title">Sign Up</h1>
             <hr>
             <section>
-                {!! Form::open(array('url'=>'/register/type'))!!}<br>
+                {!! Form::open(array('url'=>'/register/next'))!!}<br>
 
                 {!!Form::label('type','Gamer')!!}
                 {!!Form::radio('type','gamer',true)!!}<br>

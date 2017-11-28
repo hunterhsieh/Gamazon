@@ -57,18 +57,18 @@ Route::post('/search', 'SearchController@search');
 
 Route::get('/global_data','GlobalDataController@set')->name('global_data');
 
-//Route::get('/register',function()
-//{
-//    return view('auth.register');
-//});
-Route::post('/register/type',function()
+Route::post('/register/next',function()
 {
     $type=Input::get('type');
+    return redirect()->route('register_type', ['type' => $type]);
+});
+Route::get('/register/type/{type}',function($type)
+{
     if($type == 'gamer')
         return view('auth.gamer_register');
     else
         return view('auth.company_register');
-});
+})->name('register_type');
 Route::post('/register/finish',function(Request $request)
 {
     $request->validate([
