@@ -142,7 +142,7 @@ class ProductController extends Controller
 //            $filename  = time() . '.' . $image->getClientOriginalExtension();
 //            $path = public_path('uploads/' . $filename);
 //            Image::make($image->getRealPath())->resize(100, 100)->save($path);
-            $filepaths[2] = Input::file('image3')->store();
+            $filepaths[2] = Input::file('image3')->store('/');
         }
 
 
