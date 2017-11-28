@@ -42,7 +42,7 @@ class HomeController extends Controller
         }
 
         usort($popular, array($this, "cmp"));
-        echo "home"; exit;
+
         return view('home')
             ->with('popular',$popular)
             ->with('products', $products)

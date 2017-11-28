@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php echo "home"; exit; ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
