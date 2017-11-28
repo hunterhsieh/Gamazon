@@ -21,7 +21,7 @@
 <body>
 
 @include('includes.header');
-<?php echo "home"; exit; ?>
+
 <!-- Page Content -->
 <div class="container">
 
