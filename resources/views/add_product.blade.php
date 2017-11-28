@@ -19,7 +19,7 @@
 </head>
 
 <body>
-@include('includes.header');
+@include('includes.header')
 <div class="container">
 
 	<div class="center">
@@ -44,7 +44,7 @@
 
 			{!!Form::label('category','*Category')!!}<br>
 			{!!Form::select('category',
-			array('Action', 'Adventure','Role-playing','Simulation','Strategy','Sports','Other'),'Action')!!}<br><br>
+			['Action'=>'Action','Adventure'=>'Adventure','Role-playing'=>'Role-playing','Simulation'=>'Simulation','Strategy'=>'Strategy','Sports'=>'Sports','Other'=>'Other'],'Action')!!}<br><br>
 
 			{!! Form::label('Product image') !!}<br>
 			{!! Form::file('image1') !!} (*Thumbnail)<br>
@@ -64,7 +64,7 @@
 	</div>
 </div>
 
-@include('includes.footer');
+@include('includes.footer')
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>

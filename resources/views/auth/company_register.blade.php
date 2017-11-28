@@ -19,7 +19,7 @@
 </head>
 
 <body>
-@include('includes.header');
+@include('includes.header')
 <div class="container">
 
 			<h1 id="title">Sign Up</h1>
@@ -57,7 +57,7 @@
 			</section>
 </div>
 
-@include('includes.footer');
+@include('includes.footer')
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>

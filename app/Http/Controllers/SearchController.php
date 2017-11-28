@@ -47,7 +47,7 @@ class SearchController extends Controller
             ->join('product_info','product_info.product_id','=','search.product_id')
             ->select('*')
             ->where('search.company', 'LIKE', '%' . $search_company . '%')
-            ->where('search.category', 'LIKE', '%' . $search_category . '%')
+            ->where('search.category', 'LIKE', $search_category)
             ->where('search.price','<=',$search_price_h)
             ->where('search.price','>=',$search_price_l)
             ->Where('search.name','LIKE','%' . $search_keyword . '%')

@@ -21,7 +21,7 @@
 
   <body>
 
-  @include('includes.header');
+  @include('includes.header')
 
     <!-- Page Content -->
     <div class="container">
@@ -103,7 +103,7 @@
     </div>
     <!-- /.container -->
 
-  @include('includes.footer');
+  @include('includes.footer')
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

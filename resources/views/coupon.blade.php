@@ -19,7 +19,7 @@
 </head>
 
 <body>
-@include('includes.header');
+@include('includes.header')
 <div class="container">
 
     <div class="text-center">
@@ -50,7 +50,7 @@
     </div>
 </div>
 <br><br><br><br><br><br>
-@include('includes.footer');
+@include('includes.footer')
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
