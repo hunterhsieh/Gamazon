@@ -111,7 +111,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'bail|required|unique:product',
             'category' => 'required',
-            'image1'=> 'required | mimes:jpeg,jpg,png | max:51200',
+            'image1'=> 'required',
             'price' => 'required|numeric|between:0,1000000'
         ]);
 
