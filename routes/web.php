@@ -96,9 +96,9 @@ Route::post('/register/finish',function(Request $request)
 
     }
     else{
-        $request->validate([
-            'image'=> 'mimes:jpeg,jpg,png | max:51200'
-        ]);
+//        $request->validate([
+//            'image'=> 'mimes:jpeg,jpg,png | max:51200'
+//        ]);
         $filepath=Input::file('image')->store('public');
 
         $description = Input::get('description');
