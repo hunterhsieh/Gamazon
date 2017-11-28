@@ -15,6 +15,7 @@ class HomeController extends Controller
      */
     public function index($order='rate')
     {
+        echo "home"; exit;
         $products = $this->order($order);
 //
 //        return view('home')
