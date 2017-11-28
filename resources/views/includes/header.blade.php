@@ -1,4 +1,10 @@
-<?php global $account; ?>
+<?php
+    global $account;
+    $account['image'] = DB::table('company')
+    ->where('company.id', '=', $account['id'])
+    ->select('image')
+    ->get()->first()->image;
+?>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">

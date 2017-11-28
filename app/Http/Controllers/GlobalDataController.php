@@ -51,7 +51,7 @@ class GlobalDataController extends Controller
 
                 $account['type'] = 'company';
                 $account['type_id'] = $company['0']->company_id;
-                $account['image'] = $company['0']->image;
+                //$account['image'] = $company['0']->image;
             }
             setcookie('account',serialize($account));
             return redirect()->route('home');
