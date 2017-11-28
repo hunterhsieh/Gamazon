@@ -38,7 +38,7 @@
             @endforeach
           </div>
           <br><br>
-          @if($account['type']=='gamer')
+          @if($account['type']!='company')
             @if($in_cart == true)
             <a href="/cart/remove/{{$product->product_id}}" class="btn btn-lg btn-warning">Remove from cart</a>
             @else
