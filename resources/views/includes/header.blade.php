@@ -1,10 +1,4 @@
-<?php
-    global $account;
-    $account['image'] = DB::table('company')
-    ->where('company.id', '=', $account['id'])
-    ->select('image')
-    ->get()->first()->image;
-?>
+<?php global $account;?>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -42,6 +36,12 @@
                     <li class="hunter-menu nav-item">
 
                         @if($account['type']=='company')
+                            <?php
+                                $account['image'] = DB::table('company')
+                                    ->where('company.id', '=', $account['id'])
+                                    ->select('image')
+                                    ->get()->first()->image;
+                            ?>
                         <a class="nav-link">
 
                             <img class="company-icon" src="{{$account['image']}}">
