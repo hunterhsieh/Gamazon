@@ -121,28 +121,28 @@ class ProductController extends Controller
         $video = Input::get('video');
         $price = Input::get('price');
 
-        $filepaths=array();
+        $src=array();
         if(Input::file('image1') != null){
-//            $image = Input::file('image1');
-//            $filename  = time() . '.' . $image->getClientOriginalExtension();
-//            $path = public_path('uploads/' . $filename);
-//            Image::make($image->getRealPath())->resize(100, 100)->save($path);
-            $filepaths[0]=Input::file('image1')->store('/');
+            $img_file=Input::file('image1');
+            $img_content = file_get_contents($img_file);
+            $img_type = Input::file('image1')->getMimeType();
+            $imgData = base64_encode($img_content);
+            $src[0] = 'data:'.$img_type.';base64, '.$imgData;
         }
 
         if(Input::file('image2') != null) {
-//            $image = Input::file('image2');
-//            $filename  = time() . '.' . $image->getClientOriginalExtension();
-//            $path = public_path('uploads/' . $filename);
-//            Image::make($image->getRealPath())->resize(100, 100)->save($path);
-            $filepaths[1] = Input::file('image2')->store('/');
+            $img_file = Input::file('image2');
+            $img_content = file_get_contents($img_file);
+            $img_type = Input::file('image2')->getMimeType();
+            $imgData = base64_encode($img_content);
+            $src[1] = 'data:'.$img_type.';base64, '.$imgData;
         }
         if(Input::file('image3') != null) {
-//            $image = Input::file('image3');
-//            $filename  = time() . '.' . $image->getClientOriginalExtension();
-//            $path = public_path('uploads/' . $filename);
-//            Image::make($image->getRealPath())->resize(100, 100)->save($path);
-            $filepaths[2] = Input::file('image3')->store('/');
+            $img_file = Input::file('image3');
+            $img_content = file_get_contents($img_file);
+            $img_type = Input::file('image3')->getMimeType();
+            $imgData = base64_encode($img_content);
+            $src[2] = 'data:'.$img_type.';base64, '.$imgData;
         }
 
 
@@ -157,11 +157,11 @@ class ProductController extends Controller
             ->get();
 
         $thumb=1;
-        for ($i=0;$i<sizeof($filepaths);$i++) {
-            if($filepaths[$i] == null)
+        for ($i=0;$i<sizeof($src);$i++) {
+            if($src[$i] == null)
                 continue;
             DB::table('image')->insert(
-                ['product_id' => $product_id['0']->product_id, 'image' => $filepaths[$i], 'thumb' => $thumb]
+                ['product_id' => $product_id['0']->product_id, 'image' => $src[$i], 'thumb' => $thumb]
             );
             $thumb = 0;
         }

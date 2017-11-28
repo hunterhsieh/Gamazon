@@ -37,8 +37,10 @@
 
                         @if($account['type']=='company')
                         <a class="nav-link">
-                            <img class="company-icon" src="{{asset('uploads/' . $account['image'])}}">
+
+                            <img class="company-icon" src="{{$account['image']}}">
                             &nbsp;{{ Auth::user()->name }}
+
                         </a>
                         <ul>
                             <li><a class="nav-link" href="/product/add">Add product</a></li>

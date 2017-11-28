@@ -96,12 +96,17 @@ Route::post('/register/finish',function(Request $request)
 
     }
     else{
-        $filepath=Input::file('image')->store('public');
+        //$filepath=Input::file('image')->store('public');
+        $img_file = Input::file('image');
+        $img_content = file_get_contents($img_file);
+        $img_type = Input::file('image')->getMimeType();
+        $imgData = base64_encode($img_content);
+        $src = 'data:'.$img_type.';base64, '.$imgData;
 
         $description = Input::get('description');
 
         DB::table('company')->insert(
-            ['id' => $auth_id['0']->id, 'image' => $filepath,'description'=>$description]
+            ['id' => $auth_id['0']->id, 'image' => $src, 'description'=>$description]
         );
     }
     return Redirect::to('/login');

@@ -51,7 +51,7 @@
         <div class="col-lg-9">
 
           <div class="card mt-4">
-            <img class="card-img-top img-fluid product-image" src="{{asset('uploads/' . $images[$image_no]->image)}}" alt="">
+            <img class="card-img-top img-fluid product-image" src="{{$images[$image_no]->image}}" alt="">
             <div class="card-body">
               <h3 class="card-title">{{$product->name}}</h3>
               <h4>${{$product->price}}</h4>

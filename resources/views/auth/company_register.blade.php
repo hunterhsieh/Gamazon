@@ -24,6 +24,15 @@
 
 			<h1 id="title">Sign Up</h1>
 			<hr>
+			@if ($errors->any())
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+			@endif
 			<section>
 				{!! Form::open(array('url'=>'/register/finish','files' => true))!!}<br>
 				{!!Form::hidden('type','company')!!}

@@ -49,7 +49,7 @@
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card">
-                        <img class="card-img-top card-image" src="{{asset('uploads/' . $images[$pop->product_id])}}" alt="">
+                        <img class="card-img-top card-image" src="{{$images[$pop->product_id]}}" alt="">
                         <div class="card-body">
                             <h4 class="card-title">{{$pop->name}}</h4>
                             <p class="card-text">Rates: {{number_format($pop->rate,1)}} | Reviews: {{$pop->review}} | Visits: {{$pop->visit}}</p>
@@ -80,7 +80,7 @@
             @foreach($products as $product)
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card">
-                        <img class="card-img-top card-image" src="{{asset('uploads/' . $images[$product->product_id])}}" alt="">
+                        <img class="card-img-top card-image" src="{{$images[$product->product_id]}}" alt="">
                         <div class="card-body">
                             <h4 class="card-title">{{$product->name}}</h4>
                             <p class="card-text">Rates: {{number_format($product->rate,1)}} | Reviews: {{$product->review}} | Visits: {{$product->visit}}</p>

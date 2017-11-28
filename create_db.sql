@@ -22,7 +22,7 @@ CREATE TRIGGER gamer_inc_id BEFORE INSERT ON gamer
 delimiter ;
 CREATE TABLE company (	id int(10) UNSIGNED unique,
 						company_id int(10) UNSIGNED unique,
-                        image varchar(191),
+                        image LONGTEXT,
                         description TEXT,
                         PRIMARY KEY (id, company_id),
                         FOREIGN KEY (id) REFERENCES users(id) on delete cascade);
@@ -51,10 +51,11 @@ CREATE TABLE review (	review_id int(10) UNSIGNED AUTO_INCREMENT,
                         rate int(10) not null default 0,
 						PRIMARY KEY (review_id),
                         FOREIGN KEY (product_id) REFERENCES product (product_id) on delete cascade);
-CREATE TABLE image (	product_id int(10) UNSIGNED,
-						image varchar(191) NOT NULL,
+CREATE TABLE image (	image_id int(10) UNSIGNED AUTO_INCREMENT,
+						product_id int(10) UNSIGNED,
+						image LONGTEXT NOT NULL,
                         thumb bit,
-                        PRIMARY KEY (product_id, image),
+                        PRIMARY KEY (image_id),
                         FOREIGN KEY (product_id) REFERENCES product (product_id) on delete cascade);
 CREATE TABLE write_review (	id int(10) UNSIGNED,
 						gamer_id int(10) UNSIGNED,
