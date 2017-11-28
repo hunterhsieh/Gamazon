@@ -1,4 +1,4 @@
-<?php echo "home"; exit; ?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,7 +21,7 @@
 <body>
 
 @include('includes.header');
-
+<?php echo "home"; exit; ?>
 <!-- Page Content -->
 <div class="container">
 
