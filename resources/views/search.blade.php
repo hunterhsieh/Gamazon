@@ -59,7 +59,7 @@
                         <img class="card-img-top" src="{{$images[$product->product_id]}}" alt="">
                         <div class="card-body">
                             <h4 class="card-title">{{$product->name}}</h4>
-                            <p class="card-text">{{$product->description}}</p>
+                            <p class="card-text">Rates: {{number_format($product->rate,1)}} | Reviews: {{$product->review}} | Visits: {{$product->visit}}</p>
                         </div>
                         <div class="card-footer">
                             <a href="/product/{{$product->product_id}}" class="btn btn-primary">Details</a>
