@@ -20,7 +20,7 @@ CREATE TRIGGER gamer_inc_id BEFORE INSERT ON gamer
 		END IF;
     END; //
 delimiter ;
-CREATE TABLE company (	id int(10) UNSIGNED,
+CREATE TABLE company (	id int(10) UNSIGNED unique,
 						company_id int(10) UNSIGNED unique,
                         image varchar(191),
                         description TEXT,
@@ -36,8 +36,8 @@ CREATE TRIGGER company_inc_id BEFORE INSERT ON company
     END; //
 delimiter ;
 CREATE TABLE product (	product_id int(10) UNSIGNED AUTO_INCREMENT,
-						id int(10) UNSIGNED unique,
-                        company_id int(10) UNSIGNED unique,
+						id int(10) UNSIGNED,
+                        company_id int(10) UNSIGNED,
                         name varchar(191) unique NOT NULL,
                         video varchar(191),
                         description TEXT,
@@ -51,12 +51,11 @@ CREATE TABLE review (	review_id int(10) UNSIGNED AUTO_INCREMENT,
                         rate int(10) not null default 0,
 						PRIMARY KEY (review_id),
                         FOREIGN KEY (product_id) REFERENCES product (product_id) on delete cascade);
-CREATE TABLE image (	id int(10) UNSIGNED,
-						product_id int(10) UNSIGNED,
+CREATE TABLE image (	product_id int(10) UNSIGNED,
 						image varchar(191) NOT NULL,
                         thumb bit,
-                        FOREIGN KEY (id,product_id) REFERENCES product (id,product_id) on delete cascade,
-                        PRIMARY KEY (id, product_id, image));
+                        PRIMARY KEY (product_id, image),
+                        FOREIGN KEY (product_id) REFERENCES product (product_id) on delete cascade);
 CREATE TABLE write_review (	id int(10) UNSIGNED,
 						gamer_id int(10) UNSIGNED,
 						review_id int(10) UNSIGNED,

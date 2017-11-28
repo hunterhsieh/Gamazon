@@ -53,7 +53,9 @@ class CompanyController extends Controller
     private function order($order,$company_id)
     {
         $products = DB::table('product_info')
+            ->join('product','product.product_id','=','product_info.product_id')
             ->select('*')
+            ->where('product.company_id','=', $company_id)
             ->get()->all();
 
         switch ($order) {
