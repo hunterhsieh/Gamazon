@@ -15,7 +15,9 @@ class ProductController extends Controller
     public function show($product_id,$image_no=0)
     {
         global $account;
-        $account=unserialize($_COOKIE['account']);
+        if(Auth::check()) {
+            $account = unserialize($_COOKIE['account']);
+        }
 
         $product = DB::select('select * from product where product_id = :id', ['id' => $product_id]);
         $reviews = DB::table('write_review')
@@ -58,10 +60,11 @@ class ProductController extends Controller
 
         $has_reviewed=false;
 
-        foreach($reviews as $review)
-        {
-            if($review->id == $account['id'])
-                $has_reviewed=true;
+        if(Auth::check()) {
+            foreach ($reviews as $review) {
+                if ($review->id == $account['id'])
+                    $has_reviewed = true;
+            }
         }
 
         if(sizeof($rates)==0 || $rates['0']->rate==null)
