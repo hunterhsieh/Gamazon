@@ -53,6 +53,8 @@ class GlobalDataController extends Controller
                 $account['type_id'] = $company['0']->company_id;
                 //$account['image'] = $company['0']->image;
             }
+            unset($GLOBALS['account']);
+            unset($_COOKIE['account']);
             setcookie('account',serialize($account));
             return redirect()->route('home');
         }

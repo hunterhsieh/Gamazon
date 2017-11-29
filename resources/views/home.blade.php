@@ -45,7 +45,7 @@
             <?php $i=0; ?>
             @foreach($popular as $pop)
                 <?php $i++; ?>
-                @break($i>=5)
+                @break($i>5)
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card">
