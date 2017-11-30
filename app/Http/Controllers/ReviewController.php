@@ -60,6 +60,7 @@ class ReviewController extends Controller
             ->rightJoin('review','review.review_id','=','like_review.review_id')
             ->where('like_review.id','=',$account['id'])
             ->where('like_review.gamer_id','=',$account['type_id'])
+            ->where('like_review.review_id','=',$review_id)
             //->groupBy('review.review_id')
             ->get();
 
