@@ -79,7 +79,7 @@ class GlobalDataController extends Controller
             ->select('*')
             ->get();
 
-        $redeem = 0;
+        $redeem = $gamer['0']->redeem_likes;
 
         // Calculate level and coupons
         if($write_num['0']->reviews == 0)

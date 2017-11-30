@@ -23,13 +23,6 @@ class CartController extends Controller
 
         $products = $this->time_order($account['type_id']);
 
-//        $order_products = DB::table('order_product')
-//            ->join('product', 'product.product_id', '=', 'order_product.product_id')
-//            ->select('*')
-//            ->where('order_product.id', '=', $account['id'])
-//            ->where('order_product.gamer_id', '=', $account['type_id'])
-//            ->get();
-
         $images_obj=DB::table('image')
             ->select('product_id','image')
             ->where('thumb','=',1)
@@ -51,6 +44,7 @@ class CartController extends Controller
     {
         global $account;
         $account=unserialize($_COOKIE['account']);
+
 //        DB::table('order_product')->insert(
 //            ['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product_id'=>$product_id]
 //        );
@@ -62,7 +56,7 @@ class CartController extends Controller
 
         DB::connection('mongodb')
                 ->collection('order')
-                ->insert(['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product'=>$product]);
+                ->insert(['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product_id' => $product_id, 'product'=>$product]);
 
         return redirect()->route('product', ['id' => $product_id]);
     }
@@ -71,8 +65,14 @@ class CartController extends Controller
     {
         global $account;
         $account=unserialize($_COOKIE['account']);
-        DB::table('order_product')
-            ->where('product_id', '=', $product_id)
+//        DB::table('order_product')
+//            ->where('product_id', '=', $product_id)
+//            ->where('id','=',$account['id'])
+//            ->delete();
+
+        $products_obj = DB::connection('mongodb')
+            ->collection('order')
+            ->where('product_id','=',$product_id)
             ->where('id','=',$account['id'])
             ->delete();
 
@@ -83,7 +83,12 @@ class CartController extends Controller
     {
         global $account;
         $account=unserialize($_COOKIE['account']);
-        DB::table('order_product')
+//        DB::table('order_product')
+//            ->where('id','=',$account['id'])
+//            ->delete();
+
+        $products_obj = DB::connection('mongodb')
+            ->collection('order')
             ->where('id','=',$account['id'])
             ->delete();
 
@@ -101,13 +106,12 @@ class CartController extends Controller
         // db.order.find({ gamer_id: 1}, { product: 1, _id:0})
         $products_obj = DB::connection('mongodb')
             ->collection('order')
-            ->where('gamer_id','=',1)
+            ->where('gamer_id','=',$gamer_id)
             ->get();
 
         $products=array();
         foreach($products_obj as $product_obj)
         {
-            $a = $product_obj['product'];
             array_push($products,$product_obj['product']);
         }
 

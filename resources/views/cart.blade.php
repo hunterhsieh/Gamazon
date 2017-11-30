@@ -39,14 +39,14 @@
             @foreach($products as $product)
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card">
-                        <img class="card-img-top" src="{{$images[$product->product_id]}}" alt="">
+                        <img class="card-img-top" src="{{$images[$product['product_id']]}}" alt="">
                         <div class="card-body">
-                            <h4 class="card-title">{{$product->name}}</h4>
-                            <p class="card-text">Rates: {{number_format($product->rate,1)}} | Reviews: {{$product->review}} | Visits: {{$product->visit}}</p>
+                            <h4 class="card-title">{{$product['name']}}</h4>
+                            <p class="card-text">Rates: {{number_format($product['rate'],1)}} | Reviews: {{$product['review']}} | Visits: {{$product['visit']}}</p>
                         </div>
                         <div class="card-footer">
-                            <a href="/product/{{$product->product_id}}" class="btn btn-primary">Details</a>
-                            <a href="/cart/remove/{{$product->product_id}}" class="btn btn-warning">Remove</a>
+                            <a href="/product/{{$product['product_id']}}" class="btn btn-primary">Details</a>
+                            <a href="/cart/remove/{{$product['product_id']}}" class="btn btn-warning">Remove</a>
                         </div>
                     </div>
                 </div>

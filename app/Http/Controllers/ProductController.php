@@ -78,11 +78,17 @@ class ProductController extends Controller
 
             if($account['type']=='gamer') {
 
-                $cart = DB::table('order_product')
-                    ->select('*')
-                    ->where('order_product.product_id', '=', $product_id)
-                    ->where('order_product.id', '=', $account['id'])
-                    ->get();
+//                $cart = DB::table('order_product')
+//                    ->select('*')
+//                    ->where('order_product.product_id', '=', $product_id)
+//                    ->where('order_product.id', '=', $account['id'])
+//                    ->get();
+
+                $cart = DB::connection('mongodb')
+                    ->collection('order')
+                    ->where('product_id','=',$product_id)
+                    ->where('id','=',$account['id'])
+                    ->get()->all();
 
                 if (sizeof($cart) > 0)
                     $in_cart = true;
