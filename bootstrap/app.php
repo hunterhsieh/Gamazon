@@ -14,6 +14,7 @@
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
+$app->register(Jenssegers\Mongodb\MongodbServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

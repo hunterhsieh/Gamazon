@@ -53,6 +53,15 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+//mongodb://heroku_22pzbd36:ecv6lubl2n0iea0f92u9i314af@ds123956.mlab.com:23956/heroku_22pzbd36
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'host'     => 'ds123956.mlab.com',
+            'port'     => 23956,
+            'database' => 'heroku_22pzbd36',
+            'username' => 'heroku_22pzbd36',
+            'password' => 'ecv6lubl2n0iea0f92u9i314af',
+        ],
 
 //        'mysql' => [
 //            'driver' => 'mysql',

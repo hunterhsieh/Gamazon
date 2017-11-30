@@ -166,6 +166,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         // Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
+
         /*
          * Package Service Providers...
          */

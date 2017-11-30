@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Jenssegers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -51,9 +51,12 @@ class CartController extends Controller
     {
         global $account;
         $account=unserialize($_COOKIE['account']);
-        DB::table('order_product')->insert(
-            ['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product_id'=>$product_id]
-        );
+//        DB::table('order_product')->insert(
+//            ['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product_id'=>$product_id]
+//        );
+        DB::connection('mongodb')
+        ->collection('heroku_22pzbd36')
+        ->insert(['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product_id'=>$product_id]);
 
         return redirect()->route('product', ['id' => $product_id]);
     }
