@@ -63,6 +63,15 @@ return [
             'password' => 'ecv6lubl2n0iea0f92u9i314af',
         ],
 
+//        'mongodb' => [
+//            'driver'   => 'mongodb',
+//            'host'     => 'localhost',
+//            'port'     => 27017,
+//            'database' => 'order_product',
+//            'username' => '',
+//            'password' => '',
+//        ],
+
 //        'mysql' => [
 //            'driver' => 'mysql',
 //            'host' => env('DB_HOST', '127.0.0.1'),

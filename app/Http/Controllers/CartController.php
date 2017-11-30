@@ -55,8 +55,10 @@ class CartController extends Controller
 //            ['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product_id'=>$product_id]
 //        );
         DB::connection('mongodb')
-        ->collection('heroku_22pzbd36')
+        ->collection('order')
         ->insert(['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product_id'=>$product_id]);
+
+//        $mongo = new MongoClient("mongodb://localhost");
 
         return redirect()->route('product', ['id' => $product_id]);
     }
