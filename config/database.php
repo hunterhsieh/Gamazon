@@ -61,13 +61,14 @@ return [
             'database' => 'heroku_22pzbd36',
             'username' => 'heroku_22pzbd36',
             'password' => 'ecv6lubl2n0iea0f92u9i314af',
+            'options' =>['database' => 'heroku_22pzbd36']
         ],
 
 //        'mongodb' => [
 //            'driver'   => 'mongodb',
 //            'host'     => 'localhost',
 //            'port'     => 27017,
-//            'database' => 'order_product',
+//            'database' => 'gamazon',
 //            'username' => '',
 //            'password' => '',
 //        ],

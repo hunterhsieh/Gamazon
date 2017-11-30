@@ -78,14 +78,16 @@
               @foreach ($reviews as $review)
                 <p>{{$review->content}}</p>
                 <small class="text-muted">Posted by {{$review->name}} | Rate {{$review->rate}}</small><br>
-                <small class="like">
-                  <a href="/product/review/like/{{$product->product_id}}/{{$review->review_id}}">Like</a>
-                  {{$review->like_num}}
-                  @if($review->id == $account['id'])
-                  &nbsp; &nbsp;
-                  <a href="/product/review/delete/{{$product->product_id}}/{{$review->review_id}}">Delete</a>
-                  @endif
-                </small>
+                @if($account['type']!='company')
+                  <small class="like">
+                    <a href="/product/review/like/{{$product->product_id}}/{{$review->review_id}}">Like</a>
+                    {{$review->like_num}}
+                    @if($review->id == $account['id'])
+                    &nbsp; &nbsp;
+                    <a href="/product/review/delete/{{$product->product_id}}/{{$review->review_id}}">Delete</a>
+                    @endif
+                  </small>
+                @endif
                 <hr>
               @endforeach
               @if(!$has_reviewed)

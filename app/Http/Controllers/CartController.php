@@ -54,11 +54,15 @@ class CartController extends Controller
 //        DB::table('order_product')->insert(
 //            ['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product_id'=>$product_id]
 //        );
-        DB::connection('mongodb')
-        ->collection('order')
-        ->insert(['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product_id'=>$product_id]);
 
-//        $mongo = new MongoClient("mongodb://localhost");
+        $product = DB::table('product_info')
+            ->select('*')
+            ->where('product_id','=',$product_id)
+            ->get()->first();
+
+        DB::connection('mongodb')
+                ->collection('order')
+                ->insert(['id' => $account['id'], 'gamer_id'=>$account['type_id'], 'product'=>$product]);
 
         return redirect()->route('product', ['id' => $product_id]);
     }
@@ -88,11 +92,36 @@ class CartController extends Controller
 
     private function time_order($gamer_id)
     {
-        $products = DB::table('product_info')
-            ->join('order_product','product_info.product_id','=','order_product.product_id')
-            ->select('*')
-            ->where('order_product.gamer_id','=',$gamer_id)
-            ->get()->all();
+//        $products = DB::table('product_info')
+//            ->join('order_product','product_info.product_id','=','order_product.product_id')
+//            ->select('*')
+//            ->where('order_product.gamer_id','=',$gamer_id)
+//            ->get()->all();
+
+        // db.order.find({ gamer_id: 1}, { product: 1, _id:0})
+        $products_obj = DB::connection('mongodb')
+            ->collection('order')
+            ->where('gamer_id','=',1)
+            ->get();
+
+        $products=array();
+        foreach($products_obj as $product_obj)
+        {
+            $a = $product_obj['product'];
+            array_push($products,$product_obj['product']);
+        }
+
+
+        //$m = new MongoClient("mongodb://heroku_22pzbd36:ecv6lubl2n0iea0f92u9i314af@ds123956.mlab.com:23956/"); // connect
+        //$manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+//        $manager = new MongoDB\Client\Manager("mongodb://localhost:27017");
+//        $db = $$manager->selectDB("order");
+//        //$search['$text'] = ['$search' => "foo"];
+//        $options["projection"] = ['_id' => 0];
+//
+//
+//        $products = $db->find(['gamer_id' => $gamer_id], ['product' => 1, '_id' => 0]);
+
 
         usort($products, function($productsA, $productsB){
             if($productsA->rate > $productsB->rate)
