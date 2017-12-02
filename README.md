@@ -1,5 +1,5 @@
 # Gamazon
-A market place for PS4 games
+A market place for PS4 games  
 Demo: http://gamazon.herokuapp.com/home
 
 Reference
@@ -38,17 +38,19 @@ Instruction
 ------
 1. Create a database called gamazon
 2. $ cd [Gamazon root directory]
-5. $ php artisan migrate
-6. Run create_db.sql
-7. Launch the web application by clicking on Run->Run or by visiting http://localhost/
+3. $ php artisan migrate
+4. Run create_db.sql
+5. Launch the web application by clicking on Run->Run or by visiting http://localhost/
 
 Deploy Laravel onto Heroku
 ------
 1.  Create database (ClearDB, JawDB)
 2.  Paste the following code in web.php
+```php
 	 Route::get('/', function () {
 	     return Redirect::route('home');
 	 });
+```
 3.  Comment Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class in config/app.php
 4.  $ echo web: vendor/bin/heroku-php-apache2 public/ > Procfile
 5.  $ git add .
