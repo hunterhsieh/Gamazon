@@ -2,6 +2,17 @@
 A market place for PS4 games  
 Demo: http://gamazon.herokuapp.com/home
 
+Introduction
+------
+Gamazon is a website for PS4 gamers to review and rate games made by different companies, and receive promo code for a game discount. The purpose of Gamazon is offer a critical view of how a PS4 game succeeds or fails at what it’s trying to do, give users all the info needed to determine if a PS4 game is worth their time and hard-earned cash,  and users will have chance to get discount of a game. Both PS4 game produce companies and all the PS4 gamers are our intended users.
+We choose to use PHP as our primary programming language, and Laravel as our framework for the entire project. In addition, we deploy Gamazon on Heroku (PaaS) and connect it with both SQL (MySQL) and NOSQL (Mongo dB) database to store our data. 
+
+Functions
+------
+As the functionalities we have stated in the proposal, we have complete all functions we planned to do. When register, user can choose to create either a gamer account or company account. The password will be hashed before saved into database. Each account will have different access and features. Gamer account will be able to visit, review, rate and like other gamer’s review. In addition, gamers will be divided into three different ranking, Bronze, Silver and Gold. A Gamer will be able to promote into silver level if the average likes from all reviews are more than 5, and promote into gold level if the average likes from all reviews are more than 15. Gamazon will send out 10% off coupon for gamers when a gamer promote to Silver, and 20% off coupon when a gamer promote to Gold. Other than Gamer account, Company account can only add products. And each company will have its own page which present five most popular products. 
+In addition, the front page of Gamazon will recommend five most popular product (based on the stars of review). It also allow gamers to specify the order of game list by the number of reviews, visits, or products with highest rate. Furthermore, a search engine is provided by Gamazon. Gamers can search their interesting products by companies, categories (action, sports, strategy, etc), price or keyword. 
+
+
 Reference
 ------
 MAMP  
